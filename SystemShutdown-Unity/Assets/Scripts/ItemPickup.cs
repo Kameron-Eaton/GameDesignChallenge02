@@ -12,7 +12,7 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    public GameObject activateOB;
+    public Item activateOB;
     bool inReach;
 
     private void Start()
@@ -41,7 +41,8 @@ public class ItemPickup : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && inReach)
         {
-            activateOB.SetActive(true);
+            activateOB.gameObject.SetActive(true);
+            activateOB.isCollected = true;
             Destroy(gameObject);
         }
     }
