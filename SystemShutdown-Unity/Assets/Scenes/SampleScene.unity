@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 709368807}
   - component: {fileID: 709368808}
   - component: {fileID: 709368809}
+  - component: {fileID: 709368810}
   m_Layer: 0
   m_Name: FirstPersonPlayer
   m_TagString: Player
@@ -387,6 +388,20 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &709368810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709368806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a57c0eb276c9a743bd2fdcac4d73241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashLight: {fileID: 919132148076402736}
+  weapon: {fileID: 1505530730}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,9 +684,54 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 543450652530705045}
+  - {fileID: 1505530729}
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1505530728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505530729}
+  - component: {fileID: 1505530730}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1505530729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505530728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1367317191}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1505530730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505530728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a929629dbd0684bb97fe52acbae61a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCollected: 0
 --- !u!1 &1605551862
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +1032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652530705045}
   - component: {fileID: 919132148076402736}
+  - component: {fileID: 919132148076402737}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -988,10 +1049,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132148076402735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5d1905ed8b280429cb629e4eaf44d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 36a929629dbd0684bb97fe52acbae61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isCollected: 0
+--- !u!114 &919132148076402737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148076402735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f41e6be17722c44ab31dc6b305b836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashLight: {fileID: 1665479425}
 --- !u!1 &3655000508887233129
 GameObject:
   m_ObjectHideFlags: 0

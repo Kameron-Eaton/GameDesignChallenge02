@@ -1,16 +1,16 @@
 /* Created by: Kameron Eaton
- * Date Created: April 10, 2022
+ * Date Created: April 11, 2022
  * 
  * Last Edited by: NA
  * Last Edited: April 11, 2022
  * 
- * Description: Handles items that can be collected
+ * Description: Handles equipment items
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+public class Equipment : Item
 {
-    public bool isCollected = false;
+    
 }
