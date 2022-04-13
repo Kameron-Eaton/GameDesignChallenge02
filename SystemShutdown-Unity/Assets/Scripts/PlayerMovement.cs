@@ -2,7 +2,7 @@
  * Date Created: April 7, 2022
  * 
  * Last Edited by: NA
- * Last Edited: April 7, 2022
+ * Last Edited: April 13, 2022
  * 
  * Description: Allows the player to move around with keyboard inputs
  */
@@ -28,9 +28,13 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    public Transform headCheck;
+    public float ceilingDistance = 1.5f;
+
     Vector3 velocity;
     bool isGrounded;
     bool isCrouching;
+    bool stayCrouched;
 
     private void Start()
     {
@@ -39,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        stayCrouched = Physics.CheckSphere(headCheck.position, ceilingDistance, groundMask);
 
         if(isGrounded & velocity.y < 0)
         {
@@ -71,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isCrouching)
         {
+            if (stayCrouched)
+                return;
             isCrouching = false;
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
             speed /= crouchingMultiplier;
