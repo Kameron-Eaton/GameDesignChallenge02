@@ -23,18 +23,24 @@ public class ItemPickup : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         GameObject otherGo = other.gameObject;
-        Debug.Log("Collided with " + otherGo.name);
-        if(otherGo.tag == "Player")
+        Debug.Log("Collided with" + otherGo.name);
+   
+        if(otherGo.tag == "PlayerReach")
         {
-                inReach = true;
+            Debug.Log("Item in reach of player");
+            inReach = true;
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
         GameObject otherGo = other.gameObject;
-        if (otherGo.tag == "Player")
+        if (otherGo.tag == "PlayerReach")
+        {
+            Debug.Log("Item out of player reach");
             inReach = false;
+        }
+        
     }
 
     private void Update()
