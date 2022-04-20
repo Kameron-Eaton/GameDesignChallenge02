@@ -16,6 +16,7 @@ public class ItemPickup : MonoBehaviour
     public GameObject pickUpText;
     bool inReach;
 
+
     private void Start()
     {
         inReach = false;
