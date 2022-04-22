@@ -13,28 +13,38 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public Item activateOB;
+    public GameObject pickUpText;
     bool inReach;
+
 
     private void Start()
     {
         inReach = false;
+        activateOB.gameObject.SetActive(false);
+        pickUpText.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)
     {
         GameObject otherGo = other.gameObject;
-        Debug.Log("Collided with " + otherGo.name);
-        if(otherGo.tag == "Player")
+   
+        if(otherGo.tag == "Reach")
         {
-                inReach = true;
+            inReach = true;
+            pickUpText.SetActive(true);
+            
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
         GameObject otherGo = other.gameObject;
-        if (otherGo.tag == "Player")
+        if (otherGo.tag == "Reach")
+        {
             inReach = false;
+            pickUpText.SetActive(false);
+        }
+        
     }
 
     private void Update()
@@ -43,6 +53,7 @@ public class ItemPickup : MonoBehaviour
         {
             activateOB.gameObject.SetActive(true);
             activateOB.isCollected = true;
+            pickUpText.SetActive(false);
             Destroy(gameObject);
         }
     }
