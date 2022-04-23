@@ -5,8 +5,8 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
 
-    
-    
+
+    public LayerMask reachLayerMask;
     public int ammo = 10;
     public Camera fpsCam;
 
@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
     void Shoot(){
         //USed raycast to shoot gun and if a target with destroy script on it is hit, it dies
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit)){
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, 1000f, ~reachLayerMask)){
             Debug.Log(hit.transform.name);
             //If ammo then shoot
             if (ammo>=0){
