@@ -6,8 +6,8 @@ public class Gun : MonoBehaviour
 {
 
     
-    public float range = 100f;
-
+    
+    public int ammo = 10;
     public Camera fpsCam;
 
 
@@ -20,18 +20,28 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If you press mouse key, it shoots
         if (Input.GetButtonDown("Fire1")){
             Shoot();
         }
     }
     void Shoot(){
+        //USed raycast to shoot gun and if a target with destroy script on it is hit, it dies
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)){
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit)){
             Debug.Log(hit.transform.name);
-            Destroy target=hit.transform.GetComponent<Destroy>();
-            if (target !=null){
-                target.Die();
+            //If ammo then shoot
+            if (ammo>=0){
+                ammo-=1;
+                Destroy target=hit.transform.GetComponent<Destroy>();
+                if (target !=null){
+                    target.Die();
             }
+            }
+            else{
+                //Place out of ammo UI here
+            }
+            
 
             
         }
