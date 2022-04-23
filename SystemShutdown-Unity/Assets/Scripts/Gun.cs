@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         // If you press mouse key, it shoots
-        if (Input.GetButtonDown("Fire1")){
+        if (Input.GetMouseButtonUp(0)){
             Shoot();
         }
     }
