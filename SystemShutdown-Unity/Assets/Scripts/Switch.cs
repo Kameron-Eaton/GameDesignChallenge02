@@ -30,6 +30,7 @@ public class Switch : Interactable
         {
             if (requiredItem.gameObject.activeInHierarchy)
             {
+                switchState = true;
                 itemRequired = !itemRequired;
                 requiredItem.gameObject.SetActive(false);
             }
@@ -67,6 +68,7 @@ public class Switch : Interactable
 
     IEnumerator Failed()
     {
+        inReach = false;
         this.GetComponent<Collider>().enabled = false;
         interactText.SetActive(false);
         failText.SetActive(true);
