@@ -2,7 +2,7 @@
  * Date Created: April 9, 2022
  * 
  * Last Edited by: NA
- * Last Edited: April 9, 2022
+ * Last Edited: April 23, 2022
  * 
  * Description: Scripted event for picking up an item and adding it to inventory
  */
@@ -51,7 +51,8 @@ public class ItemPickup : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && inReach)
         {
-            activateOB.gameObject.SetActive(true);
+            if(activateOB.tag != "Equipment")
+                activateOB.gameObject.SetActive(true);
             activateOB.isCollected = true;
             pickUpText.SetActive(false);
             Destroy(gameObject);

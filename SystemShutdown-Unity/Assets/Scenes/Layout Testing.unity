@@ -4619,9 +4619,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 141301904817891748, guid: bdc09f7a2eb67f446b791d7cd7fd3f94, type: 3}
+      propertyPath: m_TagString
+      value: Equipment
+      objectReference: {fileID: 0}
     - target: {fileID: 345495859567653923, guid: bdc09f7a2eb67f446b791d7cd7fd3f94, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 345495859567653923, guid: bdc09f7a2eb67f446b791d7cd7fd3f94, type: 3}
+      propertyPath: m_TagString
+      value: Equipment
       objectReference: {fileID: 0}
     - target: {fileID: 622766218214259023, guid: bdc09f7a2eb67f446b791d7cd7fd3f94, type: 3}
       propertyPath: m_RootOrder
