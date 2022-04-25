@@ -21,13 +21,12 @@ public class GameManager : MonoBehaviour
         if (gm == null)
         {
             gm = this;
-            Debug.Log(gm);
         }
         else
         {
             Destroy(this.gameObject);
         }
-        DontDestroyOnLoad(this);
+        
         Debug.Log(gm);
     }
     #endregion
@@ -50,11 +49,14 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        Debug.Log("Button press");
     }
 
     public void Die()
     {
-        SceneManager.LoadScene(3);
+        playerHealth = 100;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(2);
     }
 
     public void QuitGame()
