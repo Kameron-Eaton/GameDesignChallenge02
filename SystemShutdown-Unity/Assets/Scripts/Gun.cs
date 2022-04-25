@@ -35,8 +35,9 @@ public class Gun : MonoBehaviour
             //If ammo then shoot
             if (ammo>=0){
                 ammo-=1;
-                Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                GameObject clone = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy target=hit.transform.GetComponent<Destroy>();
+                Destroy(clone, 2);
                 if (target !=null){
                     target.Die();
             }

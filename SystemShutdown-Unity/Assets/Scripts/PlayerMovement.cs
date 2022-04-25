@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        stayCrouched = Physics.CheckSphere(headCheck.position, ceilingDistance, groundMask);
+        //stayCrouched = Physics.CheckSphere(headCheck.position, ceilingDistance, groundMask);
 
         if(isGrounded & velocity.y < 0)
         {
