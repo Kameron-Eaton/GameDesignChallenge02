@@ -2,7 +2,7 @@
  * Date Created: April 9, 2022
  * 
  * Last Edited by: NA
- * Last Edited: April 9, 2022
+ * Last Edited: April 24, 2022
  * 
  * Description: Handles interaction with switches
  */
@@ -25,6 +25,7 @@ public class Switch : Interactable
         if(Input.GetKeyDown(KeyCode.E) && inReach && !itemRequired)
         {
             switchState = true;
+            interactText.gameObject.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.E) && inReach && itemRequired)
         {
@@ -33,6 +34,7 @@ public class Switch : Interactable
                 switchState = true;
                 itemRequired = !itemRequired;
                 requiredItem.gameObject.SetActive(false);
+                interactText.gameObject.SetActive(false);
             }
 
             else
