@@ -1,3 +1,11 @@
+/* Created by: Steve Salah
+ * Date Created: April 25, 2022
+ * 
+ * Last Edited by: Steve Salah
+ * Last Edited: April 25, 2022
+ * 
+ * Description: Hurts players health if hit by turret.
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
