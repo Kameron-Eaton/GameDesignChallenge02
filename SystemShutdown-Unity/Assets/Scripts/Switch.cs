@@ -18,7 +18,8 @@ public class Switch : Interactable
         inReach = false;
         switchState = false;
         interactText.gameObject.SetActive(false);
-        failText.gameObject.SetActive(false);
+        if(failText != null)
+            failText.gameObject.SetActive(false);
     }
     private void Update()
     {
@@ -39,7 +40,8 @@ public class Switch : Interactable
 
             else
             {
-                StartCoroutine(Failed());
+                if(failText != null)
+                   StartCoroutine(Failed());
             }
         }
     }

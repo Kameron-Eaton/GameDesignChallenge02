@@ -14,6 +14,7 @@ public class ItemPickup : MonoBehaviour
 {
     public Item activateOB;
     public GameObject pickUpText;
+    public GameObject itemGrabbedText;
     bool inReach;
 
 
@@ -22,6 +23,7 @@ public class ItemPickup : MonoBehaviour
         inReach = false;
         activateOB.gameObject.SetActive(false);
         pickUpText.SetActive(false);
+        itemGrabbedText.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -55,7 +57,17 @@ public class ItemPickup : MonoBehaviour
                 activateOB.gameObject.SetActive(true);
             activateOB.isCollected = true;
             pickUpText.SetActive(false);
-            Destroy(gameObject);
+            StartCoroutine(PlayerGrabbed());
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.transform.localScale = Vector3.zero;
         }
+    }
+
+    public IEnumerator PlayerGrabbed()
+    {
+        itemGrabbedText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        itemGrabbedText.SetActive(false);
+        Destroy(gameObject);
     }
 }
