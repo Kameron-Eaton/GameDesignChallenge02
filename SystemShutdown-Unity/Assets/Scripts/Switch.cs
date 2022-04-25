@@ -27,6 +27,7 @@ public class Switch : Interactable
         {
             switchState = true;
             interactText.gameObject.SetActive(false);
+            gameObject.GetComponent<Collider>().enabled = false;
         }
         if (Input.GetKeyDown(KeyCode.E) && inReach && itemRequired)
         {
@@ -36,6 +37,7 @@ public class Switch : Interactable
                 itemRequired = !itemRequired;
                 requiredItem.gameObject.SetActive(false);
                 interactText.gameObject.SetActive(false);
+                gameObject.GetComponent<Collider>().enabled = false;
             }
 
             else
@@ -46,7 +48,7 @@ public class Switch : Interactable
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
         GameObject otherGo = other.gameObject;
         
@@ -59,7 +61,7 @@ public class Switch : Interactable
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    public void OnCollisionExit(Collision other)
     {
         GameObject otherGo = other.gameObject;
         if (otherGo.tag == "Reach")
